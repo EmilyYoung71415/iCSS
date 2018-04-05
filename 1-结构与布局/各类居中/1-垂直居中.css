@@ -1,0 +1,136 @@
+/*
+    演示前提：假设body里包裹小矩形(宽高固定与否不确定)，实现小矩形垂直居中屏幕
+    <main>     
+        <h1>我们的目标是垂直居中~~~</h1>     
+        <p>请帮助我谢谢！！</p> 
+    </main>
+    方法汇总：
+        表格布局
+        行内块
+        基于绝对定位 + 修正中心点(margin 或transform)
+        基于视口单位
+        基于flexbox
+*/
+
+/*
+    表格布局
+*/
+
+/* .block{
+    display: table;
+    width: 100%;
+}
+main{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+} */
+
+/*
+    行内块
+    思路:在main同级生成一个元素，让该元素去撑开高度。
+        可多写个p标签，定义其line-height。
+        也可用伪元素避免增加html标签
+*/
+
+/* .block {
+    text-align: center;
+}
+   
+.block:before {
+    content: '';
+    display: inline-block;
+    height: 100%; 
+    vertical-align: middle;
+}
+
+main {
+    display: inline-block;
+    vertical-align: middle;
+    width: 300px;
+} */
+
+/*
+    基于绝对定位
+    思路:
+        若知道子元素宽高，则top 50%,left 50%，然后获取元素宽高修正中心点
+                修正方式：margin-left + margin-top ---------[1]
+                        或 top calc(50%-3em)---------[2]
+                        或 transform(即使子元素宽高不可亦可，以其自身宽高的一半为距离进行移动) ---------[3]
+*/
+
+/*已知子元素宽高实现 [1]*/
+
+/* .block{position: relative;}
+main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -3em;
+    margin-left: -9em;
+    width: 18em;
+    height: 6em;
+} */
+
+/*已知子元素宽高实现 [2]*/
+
+/* 
+.block{position: relative;}
+main {
+    position: absolute;     
+    top: calc(50% - 3em); 
+    left: calc(50% - 9em);     
+    /* margin-top: -3em;
+    margin-left: -9em; 
+    width: 18em;     
+    height: 6em; 
+} */
+
+/*已知子元素宽高实现 [3]*/
+
+/* 
+.block{position: relative;}
+main {
+    position: absolute;     
+    top: 50%;
+    left: 50%;   
+    transform: translate(-50%,-50%);
+} */
+
+/*
+    基于视口单位
+    思路：类似可以实现,margin的百分比是基于视口尺寸进行解析，但实际上其百分比以父元素宽度
+    ==》视口单位
+             vw 是与视口宽度相关的。与常人的直觉不符的是，1vw 实际上表示 视口宽度的 1%，而不是 100%。 
+             与 vw 类似，1vh 表示视口高度的 1%。
+             当视口宽度小于高度时，1vmin 等于 1vw，否则等于 1vh。 
+             当视口宽度大于高度时，1vmax 等于 1vw，否则等于 1vh。
+*/
+
+/*大元素垂直视口居中*/
+
+/* .block {
+    width: 18em;
+    margin: 50vh auto 0;
+    transform: translateY(-50%);
+    position: relative;
+} */
+
+/*小元素较大元素居中*/
+
+/* main{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+} */
+
+/*
+    基于flexbox
+*/
+.block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18em;
+    height: 10em;
+}
