@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*
+            思路：
+                一个半圆 + 一个以圆直径为边长的三角形
+            ==> 一个圆 + 一个三角形
+        
+        */
+        body {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+        .mapTriangle:before {
+            display: block;
+            content: "定位";
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: plum;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        /*使用after伪元素画三角*/
+        .mapTriangle:after {
+            display: block;
+            content: "";
+            width: 0;
+            height: 0;
+            border: 25px solid transparent;
+            border-top: 50px solid plum;
+            margin-top: -20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mapTriangle"></div>
+</body>
+
+</html>
