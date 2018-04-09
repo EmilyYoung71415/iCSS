@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .news{
+            cursor: pointer;
+        }
+        ::-webkit-details-marker{
+            display: none;
+        }
+        summary{
+            outline: 0;
+            user-select: none;
+        }
+        /*通过open属性 控制详细信息的展示与否*/
+        .details{
+            display: none;
+        }
+        [open] .details{
+            display: block;
+        }
+        span{
+            font-size: 14px;
+        }
+        /*当标签为展开时more显现*/
+        [open] span{
+            font-size: 0;
+        }
+
+        [open] span::after{
+            content: "折叠";
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <details class="news">
+        <summary>
+            <h1>Keep Pixelated Images Pixelated as They Scale</h1>
+            <p>This is a little reminder that there is a CSS property for helping control what 
+                happens to images as they scale up: image-rendering.
+            </p>
+            <p>
+                We're quite used to the idea that scaling an image larger than its natural size 
+                (upscaling) causesit to be blurry. As awful as that is, it's the browser doing the 
+                best it can to algorithmically smooth out an image over more pixels than it has data.
+                But let's say you'd really rather not it do that. Say the image is already pixel-y 
+                (pixel art), or you prefer the look of a pixelated upscaling.
+            </p>
+            
+            <p class="details">内容过多，隐藏处理处理</p>
+            <span>展开</span>
+        </summary>
+    </details>
+</body>
+<script>
+// 展开折叠 css实现
+
+//news  展开更多
+/*
+    概要 summary
+    内容。一直显示的。
+    隐藏的内容：根据展开折叠而决定显示与否
+    展开折叠。 一直显示的。
+    ====>   点击事件是放在summary里的，我们要实现点击`展开折叠`也能实现面板的折叠与关闭。
+            综上将展开折叠也写在summary里
+            通过open属性 确定其他的样式变化
+    ==》 优缺点：
+    优点：又会一个新标签，并实现了旧功能新写的功效
+         利用open属性为依托，仅用css实现折叠收缩
+    缺点：看似点击折叠展开实现面板的收缩，实际上点击整个文章即可实现折叠收缩，因为都放在summary里的
+          实际的折叠面板不会这样写，即真正的实用价值不高，不过开阔思路是完全有意义的
+*/
+
+//
+
+
+</script>
+</html>

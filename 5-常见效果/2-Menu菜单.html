@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 隐藏默认三角 */
+
+        ::-webkit-details-marker {
+            display: none;
+        }
+
+        ::-moz-list-bullet {
+            font-size: 0;
+            float: left;
+        }
+
+        summary {
+            display: inline-block;
+            padding: 5px 28px;
+            text-indent: -5px;
+            user-select: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        summary::after {
+            content: '^';
+            position: absolute;
+            width: 5px;
+            height: 12px;
+            margin: 4px 0 0 .2ch;
+            background-size: 100% 100%;
+            transition: transform .2s;
+        }
+
+        [open] summary,
+        summary:hover {
+            background-color: #fff;
+            box-shadow: inset 1px 0 #ddd, inset -1px 0 #ddd;
+        }
+
+        [open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        .box {
+            position: absolute;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            min-width: 100px;
+            padding: 5px 0;
+            margin-top: -1px;
+        }
+
+        .box a {
+            display: block;
+            padding: 5px 10px;
+            color: inherit;
+        }
+
+        .box a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .box sup {
+            position: absolute;
+            color: #cd0000;
+            font-size: 12px;
+            margin-top: -.25em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bar">
+        <details>
+            <summary>我的消息</summary>
+            <div class="box">
+                <a href>我的回答
+                    <sup>12</sup>
+                </a>
+                <a href>我的私信</a>
+                <a href>未评价订单
+                    <sup>2</sup>
+                </a>
+                <a href>我的关注</a>
+            </div>
+        </details>
+    </div>
+</body>
+<script>
+    //探究纯css下拉菜单
+
+    //detail summary 提供点击即展开的功效，我们将内容包在summary里即可，然后定位一下
+</script>
+
+
+
+</html>
