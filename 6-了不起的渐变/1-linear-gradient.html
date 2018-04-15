@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        /*
+        .circle {
+            width: 300px; 
+            height: 300px;
+            border-radius: 50%;
+            mask: radial-gradient(transparent 110px, #000 110px); 
+            overflow: hidden;
+        }
+        .circle-left {
+            width: 50%; 
+            height: 100%;
+            background: linear-gradient(to bottom,black,rgb(12, 1, 1));
+            float: left;
+        }
+        .circle-right {
+            width: 50%; 
+            height: 100%;
+            float: right;
+            background: linear-gradient(to bottom, rgb(211, 211, 21),yellow);
+        }*/
+
+        /* // 扇形
+        .sector {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            /*正方形 只显示右边部分 裁剪
+            clip: rect(0 300px 300px 150px);
+            overflow: hidden;
+        }
+        .sector::after {
+            content: '';
+            width: 100%; 
+            height: 100%;
+            background: currentColor;
+            position: absolute;
+            /*子元素 真正有颜色的地方 圆形
+            border-radius: 50%;
+            /*裁剪显示左边部分
+            clip: rect(0 150px 300px 0); 
+            /*旋转相切 寻求与右边显示部分的重合区域使得左边的半圆得以显现
+            transform: rotate(30deg);
+        }
+        */
+
+        /*
+            // 加减按钮
+        .btn {
+            background: #f0f0f0 no-repeat center;
+            border: 1px solid #d0d0d0;
+            width: 24px; 
+            height: 24px;    
+            color: #666;
+        }
+        .btn-plus {
+            /*渐变生成一个铺满整个元素背景的纯色(#666)渐变图片
+            background-image: 
+                linear-gradient(to top, red, red),
+                linear-gradient(to top, red, red);
+            /*background-size属性控制大小
+            background-size: 10px 2px, 2px 10px;
+        }
+        .btn-minus {
+            background-image: 
+                linear-gradient(to top, green, green);
+            background-size: 15px 2px;
+        }
+        */
+        
+        /*135度渐变*/
+        .tri {
+            width: 60px; 
+            height: 60px;
+            background: linear-gradient(135deg, rgba(253, 251, 251, 0), rgba(253, 251, 251, 0) 35px, red);
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <!--圆环-->
+    <div class="circle">
+        <div class="circle-left"></div>
+        <div class="circle-right"></div>
+    </div>
+
+    <!--扇形-->
+    <div class="sector"></div>
+
+    <!--渐变生成三角形-->
+    <div class="tri"></div>
+
+    <!--渐变生成加减按钮-->
+    <div class="btn btn-plus"></div>
+    <div class="btn btn-minus"></div>
+</body>
+<script>
+    // 张鑫旭 http://www.zhangxinxu.com/wordpress/2017/11/pure-css-colorful-circle/
+
+    // 借助CSS3 conic-gradient锥形渐变实现12色渐变圆环 锥形渐变---兼容性差
+
+    // 线性渐变
+    /*
+        思路:
+            把我们的圆环分成左半部分和右半部分，左半部分是一套线性渐变，右半部分是另外一套线性渐变，
+            然后最底部的线性渐变颜色是一样的，理论上在视觉上看起来就能够形成一个完美的环。
+
+
+        属性：
+            linear-gradient  见studyNotes 
+    */
+
+    // 扇形 正方形相交裁剪而得
+    /*
+        
+        <div class="sector"></div> 父级元素 只显示右边部分 (裁剪) 决定元素的可见区域
+        子元素，伪类实现， 只显示左边部分，圆形。
+        正交产生扇形：
+            左边的半圆旋转一定角度，与右边区域重叠 即使得扇形可见
+
+        所以【第一版】： 6个div旋转不同角度实现 即最容易想到的方案：6个扇形旋转
+    */
+
+    // linear-gradient线性渐变实现虚线等简单实用图形
+    // http://www.zhangxinxu.com/wordpress/2017/10/css3-linear-gradient-dashed-triangle-graph/
+
+    // 渐变生成三角形
+    // 渐变生成+ -
+
+    // background-size 是关键因素
+</script>
+
+</html>
