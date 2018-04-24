@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        :root{
+            --color1:black;
+            --color2:rgb(248, 228, 47);
+            --radius:100px;
+        }
+        .sector {
+            width: calc(var(--radius)*2);
+            height: calc(var(--radius)*2);
+            position: absolute;
+            clip: rect(0 200px 200px 100px);/*上右下左*/
+            overflow: hidden;
+        }
+        .sector::after {
+            content: '';
+            width: 100%; 
+            height: 100%;
+            background: var(--color2);
+            position: absolute;
+            border-radius: 50%;
+            clip: rect(0 100px 200px 0); 
+            background: var(--color2);
+            transform: rotate(60deg);
+        }
+        .sector:nth-of-type(1) {
+            transform: rotate(-30deg);
+        }
+        .sector:nth-of-type(2) {
+            transform: rotate(90deg);
+        }
+        .sector:nth-of-type(3) {
+            transform: rotate(210deg);
+        } 
+        .warning{
+            width: calc(var(--radius)*2);
+            height: calc(var(--radius)*2);
+            background: var(--color1);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="warning">
+        <div class="sector"></div>
+        <div class="sector"></div>
+        <div class="sector"></div> 
+    </div>
+</body>
+<script>
+    /* 思路：
+        6个扇形通过旋转拼接而成，而扇形可以通过 一个标签+伪类的方式形成
+        张鑫旭博文灵感：http://www.zhangxinxu.com/wordpress/2017/11/pure-css-colorful-circle/
+        以黑色为底色，生成黄色的3个扇形标签然后不断旋转而得
+    */
+
+</script>
+</html>

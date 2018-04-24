@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #warning {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        #warning .bg {
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: -73.2px;
+            left: 0px;
+            border-top: 173.2px solid  rgb(246, 226, 54);
+            border-left: 100px solid  transparent;
+            border-bottom: 173.2px solid  black;
+            border-right: 100px solid  transparent;
+        }
+
+        #warning .bg:nth-child(1) {
+            transform: rotate(0deg);
+        }
+
+        #warning .bg:nth-child(2) {
+            transform: rotate(120deg);
+        }
+
+        #warning .bg:nth-child(3) {
+            transform: rotate(240deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="warning">
+        <div class="bg"></div>
+        <div class="bg"></div>
+        <div class="bg"></div>
+    </div>
+    <script>
+        /*
+            同样的方法：在黑色的底色上生成3个扇形，然后不断旋转而得        
+            扇形得来：
+                border构造相间的三角形，然后使用overflow-hidden和border-radius剪裁成圆
+        */
+    </script>
+</body>
+
+</html>

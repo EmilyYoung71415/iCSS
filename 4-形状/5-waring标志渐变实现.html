@@ -12,11 +12,13 @@
             height: 200px;
             border-radius: 50%;
             position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
             background:
                 linear-gradient(60deg,transparent 50%,black 50%),
                 linear-gradient(120deg,transparent 50%,yellow 50%),
                 linear-gradient(180deg,transparent 50%,black 50%);
-            transform: rotate(180deg);            
         }
 
         .warning::before{
@@ -38,6 +40,19 @@
 
 <body>
     <div class="warning"></div>
+    <script>
+        /*
+            三种解法，分别从构建扇形的不同解法中入手的
+                1：矩形+半圆相切得扇形得方式
+                2: 渐变
+                3：border
+        */
+
+        // 解法1 ：矩形+半圆相切得扇形得方式
+        
+    
+    
+    </script>
 </body>
 
 </html>
