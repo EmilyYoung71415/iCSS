@@ -7,27 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        #warning {
+       #warning {
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
             width: 200px;
             height: 200px;
-            overflow: hidden;
-            border-radius: 50%;
+            /* overflow: hidden; */
+            border-radius: 50%;  
+            background: rebeccapurple;
+
         }
 
         #warning .bg {
             position: absolute;
             width: 0;
             height: 0;
-            top: -73.2px;
+            top:-73.2px;
             left: 0px;
             border-top: 173.2px solid  rgb(246, 226, 54);
-            border-left: 100px solid  transparent;
             border-bottom: 173.2px solid  black;
+            border-left: 100px solid  transparent;
             border-right: 100px solid  transparent;
+            border-radius: 100%;
         }
 
         #warning .bg:nth-child(1) {
@@ -47,7 +50,7 @@
 <body>
     <div id="warning">
         <div class="bg"></div>
-        <div class="bg"></div>
+        <div class="bg"></div> 
         <div class="bg"></div>
     </div>
     <script>
