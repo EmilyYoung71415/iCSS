@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* p{
+            margin: 0;
+        }
+        .left{
+            float: left;            
+            width: 40px;
+        }
+        .right{
+            margin-left:80px;
+        } 
+        .right p{  清除浮动引起的文字下沉
+            clear: both;
+        } */
+        /*demo2*/
+        p{
+            margin: 0;
+        }
+        .left{
+            position: relative;
+            float: left;            
+            width: 40px;
+        }
+        /* .rightWrap{
+            float: left;
+            /*自适应内容 100%撑开 否则是由子元素内容撑开 不能实现自适应
+            width:100%;
+            margin-left: -40px;
+        } */
+        .right{
+            float: left;
+            margin-left:100px;
+            width: calc(100%-140px);
+        }
+        .right p{
+            clear: both;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!--demo1-->
+    
+    
+    <div class="parent" style="background-color: black;">
+        <!-- 定宽 -->
+        <div class="left" style="background-color: orange;">
+            <p>left</p>
+        </div>
+        <!-- 自适应 -->
+        <div class="rightWrap">
+            <div class="right" style="background-color: yellow;">
+                <p>right</p>
+                <p>right</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+/**
+ * 1.float
+ *      1-1 float + margin 
+ *          注意点：及时清除浮动、浮动元素高度不同时犬牙交错的效果
+ *          缺点：
+ *              当右侧元素清除浮动时 此元素会与左侧浮动的元素同行。
+ *              右侧元素会下沉，即文字下沉效果
+ *      1-2 float + margin + fix(增加结构)
+ *          思路：触发BFC使得右边自己是金钟罩，
+ *                增加wrap 负margin 解决同一行问题
+ *          .rightWrap并设置浮动。
+ *          实现自适应效果:
+ *              .rightWrap宽度必须设置为100%,float后的元素宽度将由内容撑开
+ *              【负margin】
+ *              + 负margin 共同作用使得left + right 在一行显示
+ * ====> float + 自适应元素
+ *      比较好的解决办法： 自适应元素包裹一层wrap ，wrap+margin负值实现一行
+ *          而子元素内部实现样式调整
+ * 
+ *          右侧元素会层叠在左侧元素之上解决：
+ *              .left需要使用relative来提升层级    
+ * 
+ *      1-3 calc()
+ *          既然右边是自适应，那么100%宽度减去固定的左边宽度+间距
+ *          .left{float: left;width: 100px;margin-right: 20px;}    
+            .right{float: left;width: calc(100% - 120px);}
+    2-inline-block
+        ===> float 布局就应该联想到 inline-block
+        inline-block内联块布局的主要缺点
+            设置垂直对齐方式vertical-align，则需要处理换行符解析成空格的间隙问题
+
+    3-table
+        display: table-cell
+    4-absolute
+        父级设置relative 子元素设置absolute 
+        父元素高度需要设置 并非子元素撑开
+        .parent{position: relative;width:100%;height:40px;}
+        .left{position: absolute;left:0;width:100px;}
+        .right{position: absolute;left:120px;right:0;}
+
+    5-flex
+        .parent{display: flex;}
+        .left{width:100px;margin-right: 20px;}
+        .right{flex:1;}
+ */ 
+
+
+
+
+
+</script>
+</html>

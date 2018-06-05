@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .Grid {
+            background: lightslategrey;
+            width: 600px;
+            display: flex;
+        }
+
+        .Grid-cell {
+            background: yellow;
+            height: 40px;
+            margin-right: 10px;
+            flex: 1;
+        }
+        .Grid-cell.u-1of4{
+            flex: 0 0 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Grid">
+        <div class="Grid-cell u-1of4">...</div>
+        <div class="Grid-cell">...</div>
+        <div class="Grid-cell">...</div>
+    </div>
+</body>
+
+</html>

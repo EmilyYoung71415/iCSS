@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding:0;}
+        .box{
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            background: lightslategray;
+        }
+        /* header,footer{
+            flex: 1;
+        } */
+        .content{
+            display: flex;
+            flex: 1;
+            justify-content: space-between;
+        }
+        /* .content */
+        .center{
+            flex: 1 ;
+        }
+        .left,.right{
+            flex: 0 0 70px;
+        }
+
+        /*响应式布局*/
+        @media (max-width: 768px) {
+            .content{
+                flex-direction: column;
+                flex: 1;
+            }
+            .left,.center,.right{
+                flex:auto;
+            }
+        }
+    </style>
+</head>
+<body >
+    <!--圣杯布局-->
+    <div class="box">
+        <header style="background:lightblue">#header</header>
+        <div class="content">
+            <div class="left" style="background:lightcoral">1</div>
+            <div class="center" style="background:yellow">2</div>
+            <div class="right" style="background:lightcoral">3</div>
+        </div>
+        <footer  style="background:lightgreen">#footer</footer>
+    </div>
+</body>
+</html>

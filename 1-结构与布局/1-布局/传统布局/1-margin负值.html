@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .left,
+        .right{
+            width:200px;
+            float: left;
+            padding-bottom: 5000px;
+            margin-bottom: -5000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="left" style="background:red">多列等高布局左</div> 
+        <div class="right" style="background:orange">多列等多列等高布局右多列等高布局右多列等高布局右多列等高布局右高布局右</div>
+    </div>
+</body>
+<script>
+    /**
+         *  表现
+         *      display 属性不同 margin作用表现不同
+         *      block 
+         *          可使用四个方向值
+         *      inline
+         *          上下无效
+         *      inline-block
+         *          设置负值时看上去无效
+         *          这和vertical 基准值有关。
+         *          vertical： 非baseline 即可
+         *      
+         *  重叠
+         *      考虑三个变量：
+         *          谁去覆盖谁？ 即渲染顺序，谁是后者
+         *          元素属性：
+         *              inline inline-block block 
+         *              
+         *      margin负值并不总是后面元素覆盖前面元素
+         *      总结：
+         *        inline 作为后者去覆盖 block inline inline-block等。
+         *              均可覆盖： 背景+内容
+         *        block 覆盖inline 
+         *              只可覆盖内容，背景无法
+         *              覆盖block亦然
+         *      ===》 inline 覆盖别人时自己是强覆盖，撕掉重新换张红色告示
+         *          block则是 涂料，涂掉告示，重新写字
+         *      
+         *  浮动
+         *      block 元素与浮动元素同样是涂料，涂掉内容背景不改
+         *      inline 均改
+         * 
+         *  定位
+         *      定位元素覆盖其他元素背景+内容 (最强力)
+         *  
+         * 
+         * 应用：
+         *      1-水平居中针对中心点修正
+         *          width/height=100px
+         *          top/left=50%    
+         *          margin-left/margin-top=-50px
+         *      2-列表项两端对齐
+         *          <ul class="list">
+                        <li class="in">1</li>
+                        <li class="in">2</li>
+                        <li class="in">3</li>
+                    </ul>            
+                    // in : float:left; margin-right:10px;height:60px
+                    60*3+10*3=210 >200
+                    // list
+                        margin-right:-10px;
+                3-三栏自适应
+                    main\left\right 从上到下排序 float:left/ 
+                        body 100% height 100%
+                    main:width 100% ; left&right: 200px
+                    现在main里面放元素 ， 元素左右间隔距离
+                        这样会把元素被挤出去
+                    然后大招：
+                        left margin-left: -100%
+                        right -100px
+         *  
+         * 三栏等高
+         *      https://github.com/chokcoco/iCSS/issues/2
+         *      .left,
+                .right{
+                    width:200px;
+                    float: left;
+                    padding-bottom: 5000px;
+                    margin-bottom: -5000px;
+                }
+         * 
+         * 
+         **/
+</script>
+
+</html>

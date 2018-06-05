@@ -46,14 +46,17 @@
             width="100%" height="100%">
         </div>
     </div> -->
-    <div class="box">
-        <img src="http://gitbookpic.youngxyblog.com/18-4-27/4030681.jpg" 
-        class="float-left">
-        <div class="follow-content">
-                利用块状元素流体特性实现的自适应布局有个不足
-                利用块状元素流体特性实现的自适应布局有个不足~
-        </div>
-    </div>
+    <!-- 
+        利用BFC功效实现一个自适应布局
+        <div class="box">
+            <img src="http://gitbookpic.youngxyblog.com/18-4-27/4030681.jpg" 
+            class="float-left">
+            <div class="follow-content">
+                    利用块状元素流体特性实现的自适应布局有个不足
+                    利用块状元素流体特性实现的自适应布局有个不足~
+            </div>
+        </div> 
+    -->
 
 
 </body>
@@ -68,16 +71,28 @@
          *          产生的作用：margin穿透、清除浮动
          *      触发金钟罩的按钮：   
          *          float的值不为none。
-                    overflow的值为auto,scroll或hidden。
+                    overflow的值不为visible。
                     display的值为table-cell, table-caption, inline-block中的任何一个。
-                    position的值不为relative和static。
+                    position的值为absolute fixed。
                 BFC特性
                     和float元素做相邻兄弟时候的表现：
-                        普通流体元素BFC后，为了和浮动元素不产生任何交集，顺着浮动边缘形成自己的封闭上下文
+                        普通流体元素BFC后，为了和浮动元素不产生任何交集，【顺着浮动边缘形成自己的封闭上下文】
                         同时，元素原本的流体特性依然保留（反映在布局上就是自动填满除去浮动内容以外的剩余空间）
+                利用BFC自适应布局
 
+                BFC作用：
+                    1.阻止元素被浮动元素覆盖    
+                    2.可以包含浮动元素
+                        改变高度塌陷的黑色边框的盒子的属性值，使其成为BFC，以此来包含绿色的浮动盒子
 
-                BFC自适应布局
+                    3. 当两个相邻块级子元素分属于不同的BFC时可以阻止margin重叠
+                        margin吸附：
+                            属于同一个BFC的两个相邻块级子元素的上下margin会发生重叠
+                margin吸附：
+                    div1{ margin-bottom:20px;}
+                    div2{margin-top:25px;}
+                    实际上两者的间距是25px 而不是45
+                    因为处于相同BFC下，解决办法，可以
          */
 </script>
 
