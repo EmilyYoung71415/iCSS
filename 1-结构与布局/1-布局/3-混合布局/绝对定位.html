@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,p{margin: 0;}
+        body,html,.parent{height: 100%;}
+        .top,.middle,.bottom{
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        .top{
+            top: 0;
+            height: 50px;
+        }
+        .bottom{
+            bottom: 0;
+            height: 50px;
+        }
+        /*利用对冲实现"全屏"*/
+        .middle{
+            top: 50px;
+            bottom: 50px;
+        }
+        /*接下来解决内部问题*/
+        .left,.right{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+        .left{
+            width:100px;
+        }
+        .right{
+            left: 120px;
+            right: 0;
+            overflow: auto;
+        } 
+
+    </style>
+</head>
+
+<body>
+    <div class="parent" id="parent">
+        <div class="top" style="background-color: green;">
+            <p>top</p>
+        </div>
+        <div class="middle" style="background-color: pink;">
+            <div class="left" style="background-color: black;">
+                <p>left</p>
+            </div>
+            <div class="right" style="background-color: #fff;">
+                <p>right</p>
+                <p>right</p>
+                <p>right</p>
+            </div>
+        </div>
+        <div class="bottom" style="background-color:#0a35f8 ;">
+            <p>bottom</p>
+        </div>
+    </div>
+</body>
+
+</html>

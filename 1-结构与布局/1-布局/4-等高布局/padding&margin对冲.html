@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,
+        p {
+            margin: 0;
+        }
+
+        .parent {
+            overflow: hidden;
+        }
+
+        .left,
+        .centerWrap,
+        .right {
+            float: left;
+            padding-bottom: 9999px;
+            margin-bottom: -9999px;
+        }
+
+        .center {
+            margin: 0 20px;
+        }
+
+        .left,.right{width: 25%;}
+        .centerWrap{width:50%;}
+    </style>
+</head>
+
+<body>
+    <div class="parent" style="background-color: black;">
+        <div class="left" style="background-color: greenyellow;">
+            <p>left</p>
+        </div>
+        <div class="centerWrap">
+            <div class="center" style="background-color: yellow;">
+                <p>center</p>
+                <p>center</p>
+            </div>
+        </div>
+        <div class="right" style="background-color: green;">
+            <p>right</p>
+        </div>
+    </div>
+</body>
+
+</html>

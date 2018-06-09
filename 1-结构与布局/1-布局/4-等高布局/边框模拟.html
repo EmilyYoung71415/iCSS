@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,p{margin: 0;}
+        .parent{position: relative;}
+        .left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+        }
+        .center{
+            box-sizing:border-box;
+            padding: 0 20px;
+            background-clip: content-box;
+            border-left: 210px solid red;
+            border-right: 310px solid brown;
+        }
+        .right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent" style="background-color: black;">
+        <div class="left" style="background-color: greenyellow;">
+            <p>left</p>
+        </div>
+        <div class="center" style="background-color: yellow;">
+            <p>center</p>
+            <p>center</p>
+        </div>
+        <div class="right" style="background-color: green;">
+            <p>right</p>
+        </div>
+    </div>
+</body>
+
+</html>
