@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        span{
+            display: inline-block;
+            width: 120px;
+            padding: 20px 0;
+            margin: 50px;
+            cursor: pointer;
+            position: relative;
+        }
+        span::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;       
+            height: 3px;
+            background: blue;
+            transition: transform ease-in-out .6s;
+            transform: scaleX(0);
+        }
+
+        .active{
+            color: blue;
+        }
+
+        .active::before{
+            transform: scaleX(1);
+        }
+        p{
+            width: 160px;
+            margin: 0 auto; 
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <span>前端学院</span>
+
+    <p>切换样式</p>
+    <script>
+        const target = document.querySelector('span');
+        const oButton = document.querySelector('p');        
+        oButton.addEventListener('click',function(){
+            target.classList.toggle('active');
+        })
+    </script>
+</body>
+</html>

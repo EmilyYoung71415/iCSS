@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span{
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            margin: 20px;
+            background: rgb(204, 204, 203);
+            color: #fff;
+            line-height: 80px;
+            text-align: center;
+        }
+    
+        span:nth-of-type(2){
+            transform:skewX(30deg);
+        }
+
+        span:nth-of-type(3){
+            transform:scale(.5);
+        }
+        span:nth-of-type(4){
+            transform:rotate(45deg);
+        }
+        span:nth-of-type(5){
+            transform:translate(10px,20px);
+        }
+        span:nth-of-type(6){
+            transform:translate(10px,20px) skewX(30deg) scale(.5) rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>box0</span>
+        <span>box1</span>
+        <span>box2</span>
+        <span>box3</span>
+        <span>box4</span>
+        <span>box5</span>
+    </div>
+</body>
+</html>

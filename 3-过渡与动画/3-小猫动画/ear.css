@@ -1,0 +1,23 @@
+ /* ear */
+.ear-wrap{
+    position: absolute;
+    left: 50%;
+    width: 300px;
+    margin-left: -150px;
+    margin-top: 20px;
+}
+.ear {
+    position: absolute;
+    width: 80px;
+    height: 100px;
+    border: 2px solid #000;
+    background: #fbf8f1;
+    border-radius: 100% 10% 50% 0% ;
+    transition: transform ease-in-out 1s;
+}
+.ear-wrap .right {
+    left: auto;
+    right: 0;
+    border-radius: 10% 100% 0% 50%;
+    background: #f1ac2b;
+}

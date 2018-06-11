@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin-top: 20px;
+            text-align: center;
+            background: #000;
+        }
+        span{
+            padding: 5px 20px;
+            font-size:24px;
+            cursor: pointer;
+            position: relative;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+        
+        .border::before{
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: red;
+            transform: scaleX(0);
+            transition: transform  ease-in-out .3s;
+            /*结束后的缩放中心*/
+            transform-origin: 0 0;
+        }
+
+        .border:hover::before{
+            /* width: 100%; */
+            transform: scaleX(1);
+            height: 2px;
+            /*规定hover进入的时候的缩放中心*/
+            transform-origin: 100% 0;
+        }
+
+
+        .bg::before{
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: lightblue;
+            z-index: -1;
+            transform: scale(0,0);
+            transition: transform  ease-out .5s;
+            transform-origin: 0 0;
+        }
+
+        .bg:hover::before{
+            transform: scale(1,1);
+            /* transform-origin: 100% 100%; */
+        }
+    </style>
+</head>
+<body>
+    <span class="border">hover me</span>
+
+
+    <span class="bg">hover me bg</span>
+</body>
+<script>
+
+
+</script>
+<script>
+    /**
+     * 判断这个动画需要的属性
+     *      变换
+     *      过渡
+     *      动画 x
+     * 变换：
+     *      线变长
+     *      某个属性可以作用于伪类 transition
+     * 
+     *      思路：
+     *      变换的是下划线的width,
+     *      1.元素的boder-bottom是否可以作为变换属性？
+     *          border-bottom 只是变换颜色等，怎么变换他的线条由无到逐渐增长？
+     *          x   
+     *      2. 用伪元素生成 下划线。
+     *      怎么控制hover一个div之后 伪类的状态变化？
+     *      ===》div:hover::before
+     *
+     * 
+     * */
+</script>
+</html>

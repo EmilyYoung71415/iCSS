@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./transform.css"> -->
+    <style>
+        span{
+            display: inline-block;
+            position: relative;
+            width: 500px;
+            height: 200px;
+            background: green;
+            color: #fff;
+            /* transform: translate(200px,100px); */
+        }
+        .movestart{
+            animation:mymove 2s ease-in-out infinite alternate forwards;
+        }
+        @keyframes mymove
+        {
+            from {top:0px;}
+            to {top:200px;}
+        }
+
+    </style>
+</head>
+<body>
+    <span>click me</span>
+    <script>
+        const oButton = document.querySelector('span');
+        let transform = {
+            translate:function(item,x,y){
+                item.style.transform = `translate(${x}px,${y}px)`;
+            },
+            scale:function(item,x,y){
+                item.style.transform = `scale(${x},${y})`;
+            },
+            rotate:function(item,x,y){
+                item.style.transform = `rotate(${x}deg)`;
+                item.style.transformOrigin = 'left top';
+            }
+        }
+
+        let transition = function(item,property){
+            item.style.transition = property; 
+        }
+        let animation= function(item,property){
+            item.style.animation = property; 
+        }
+        oButton.addEventListener('click',function(){
+            /*transform 试探*/
+            // transform.translate(this,30,20)
+            // transform.scale(this,3,2)
+            // transform.rotate(this,20);
+
+            /* transition 试探 */
+            /*
+                transition(this,`all .8s`);
+                // 这之后的是动画结束后的状态 ， 规定从动画开始到结束的变化
+                this.style.backgroundColor = 'red';
+                this.style.height = '300px';
+                this.style.opacity = .4;
+            */
+            this.classList.add('movestart');
+            /*动画 一般是定义好的*/
+          //  animation(this,'mymove .9s easy-in 2')//forwards匹配保持最后一个属性
+        })
+        oButton.addEventListener('animationiteration',function(e){
+           //const infiniteCount = e.elapsedTime/
+           // 动画开始后4秒禁止
+           // e.timeStamp  自动画开始后当前的时间戳
+           // elapsedTime  动画已经运行的秒数
+           // 接口够用了，就是事件的触发，只能是一个周期内的动画结束后触发此函数
+            if(e.elapsedTime===8){
+                this.style.animationPlayState = 'paused';
+            }
+        })
+        
+    </script>
+</body>
+</html>
