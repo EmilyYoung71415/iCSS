@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            position: relative;
+            width: 50px;
+            height: 100px;
+            margin: 200px auto;
+            transform:perspective(50px) rotateY(0deg);
+            transform-style:preserve-3d;
+        }
+        .box .item{
+            position: absolute;
+            width: 50px;
+            height: 100px;
+            margin-right: 10px;
+            background: blue;
+            transform:rotatey(0deg);
+        }
+
+        .box:hover .item{
+            animation: mymove 1s linear;
+        }
+
+        @keyframes mymove{
+            0%{transform:rotatey(0deg);}
+            50%{transform:rotatey(90deg);background: blue;}
+            51%{transform:rotatey(91deg);background: yellow;}
+            100%{transform:rotatey(180deg);background: yellow;}
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item"></div>
+        <!-- <div class="item"></div>
+        <div class="item"></div> -->
+    </div>
+</body>
+</html>

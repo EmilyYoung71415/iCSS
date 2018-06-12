@@ -93,5 +93,30 @@
  *      1. js 设置变量，当动画开始之后就记录当前时间值
  *          js curTime - init得到时间戳，
  *      while(cur-init) // 代替监听
+ * 
+ * 
+ * @func 3d变换
+ *      坐标轴： x/y/z    rotate什么元素就绕那个轴旋转
  *      
+ *      perspective属性   感觉相当于是引入了摄像机
+ *          一种用在舞台元素上（动画元素们的共同父辈元素）；
+ *          第二种就是用在当前动画元素上
+ *          .stage {
+                perspective: 600px;
+            }
+
+            #stage .box {
+                transform: perspective(600px) rotateY(45deg);
+            }
+
+            一个舞台作为透视元素，每个元素形体不一
+            一个元素作为视点，每个表现一致
+
+        perspective-origin x/y  百分比
+            眼神聚焦点：默认就是所看舞台或元素的中心
+        transform-style: preserve-3d // 规定被嵌套元素如何在 3D 空间中显示。
+            transform-style: flat|preserve-3d;
+                           不保留  子元素将保留其 3D 位置。
+        backface-visibility // 定义元素在不面对屏幕时是否可见。
+
  */

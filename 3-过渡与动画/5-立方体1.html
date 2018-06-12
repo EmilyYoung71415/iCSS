@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /*去除默认边距*/
+        }
+
+        ul {
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            margin: 100px auto;
+            position: relative;
+            transform: perspective(300px);
+            /* rotateX(45deg) rotateY(45deg) */
+            transform-style: preserve-3d;
+            animation: mymove 8s ease-in-out infinite alternate forwards;
+        }
+
+        ul li{
+            position: absolute;
+            left: 0;
+            top: 0;
+            list-style: none;
+            width: 200px;
+            height: 200px;
+            font-size: 60px;
+            text-align: center;
+            line-height: 200px;
+            background: rgb(9, 83, 122);
+            border: 4px solid rgb(83, 83, 207);
+            color: transparent;
+            opacity: .8;
+        }
+        ul li:nth-child(1){
+            transform: translateX(-100px) rotateY(90deg);
+        }
+
+        ul li:nth-child(2){
+            transform: translateX(100px) rotateY(90deg);
+        }
+        ul li:nth-child(3){
+            transform: translateY(-100px) rotateX(90deg);
+        }
+        ul li:nth-child(4){
+            transform: translateZ(-100px);
+        }
+
+        ul li:nth-child(5){
+            transform: translateZ(100px);
+        }
+
+        ul li:nth-child(6){
+            transform: translateY(100px) rotateX(90deg);
+        }
+
+        ul:hover{
+            /* animation: mymove 8s ease-in-out ;
+            animation-fill-mode: both; */
+            animation: mymove 5s cubic-bezier(0.0,0.0,0.0,0.0) infinite paused forwards;
+        }
+
+
+
+        @keyframes mymove {
+            from{transform: perspective(300px) rotatey(0deg);}
+            to{transform: perspective(300px) rotatey(245deg);}
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</body>
+
+</html>

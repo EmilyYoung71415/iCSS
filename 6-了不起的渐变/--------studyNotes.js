@@ -31,3 +31,11 @@
  *          区域问题：
  *              渐变的起点和终点（默认）在过中心的渐变线的垂直线上
  */ 
+
+
+/**
+ *  @func   shadow
+ * 
+ *      text-shadow: h-shadow v-shadow blur color;
+ *                  水平阴影      垂直阴影  模糊距离    颜色
+ */
