@@ -118,5 +118,9 @@
             transform-style: flat|preserve-3d;
                            不保留  子元素将保留其 3D 位置。
         backface-visibility // 定义元素在不面对屏幕时是否可见。
+    @func matrix
+        默认matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 );
+        Y轴旋转：
+        matrix3d(cos(θ),0,-sin(θ),0,0,1,0,0,sin(θ),0,cos(θ),0,0,0,0,1)
 
  */
